@@ -430,7 +430,7 @@ public class DialogFinalizar extends javax.swing.JDialog {
         lblArea.setText(loginResponseDTO.getNombreArea());
     }
     
-    private void nuevo() {
+    public void nuevo() {
         rowNumSelected = -1;
         loadTramiteToFinishedByDependency();
         txtCodigoTramite.setText("");

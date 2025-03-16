@@ -560,7 +560,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         lblArea.setText(loginResponseDTO.getNombreArea());
     }
     
-    private void nuevo() {
+    public void nuevo() {
         txtBusquedaCodigoTramite.setText("");
         cbBusquedaTipoDocumento.setSelectedIndex(0);
         txtBusquedaNroDocumento.setText("");

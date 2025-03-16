@@ -269,30 +269,35 @@ public class JFramePrincipal extends javax.swing.JFrame {
     
     private void loadRegistrarTareas() {
         dialogRegistrarTarea.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogRegistrarTarea.nuevo();
         dialogRegistrarTarea.pack();
         dialogRegistrarTarea.setVisible(true);
     }
     
     private void loadDerivarTramites() {
         dialogDerivarTramite.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogDerivarTramite.nuevo();
         dialogDerivarTramite.pack();
         dialogDerivarTramite.setVisible(true);
     }
     
     private void loadDevolverTramites() {
         dialogDevolverTramite.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogDevolverTramite.nuevo();
         dialogDevolverTramite.pack();
         dialogDevolverTramite.setVisible(true);
     }
     
     private void loadFinalizarTramite() {
         dialogFinalizarTramite.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogFinalizarTramite.nuevo();
         dialogFinalizarTramite.pack();
         dialogFinalizarTramite.setVisible(true);
     }
     
     private void loadBusquedaTramite() {
         dialogBusquedaTramite.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogBusquedaTramite.nuevo();
         dialogBusquedaTramite.pack();
         dialogBusquedaTramite.setVisible(true);
     }
