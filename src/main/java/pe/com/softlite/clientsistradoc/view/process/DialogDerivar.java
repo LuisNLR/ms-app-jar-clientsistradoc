@@ -189,6 +189,12 @@ public class DialogDerivar extends javax.swing.JDialog {
 
         jLabel7.setText("Motivo de Envío *");
 
+        txtMotivoEnvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMotivoEnvioActionPerformed(evt);
+            }
+        });
+
         jLabel8.setText("Dependencia Destino");
 
         txtDependenciaDestino.setEditable(false);
@@ -327,6 +333,10 @@ public class DialogDerivar extends javax.swing.JDialog {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         procesar();
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtMotivoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMotivoEnvioActionPerformed
+        procesar();
+    }//GEN-LAST:event_txtMotivoEnvioActionPerformed
 
     /**
      * @param args the command line arguments

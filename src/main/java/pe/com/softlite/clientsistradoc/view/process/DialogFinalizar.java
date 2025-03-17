@@ -203,6 +203,12 @@ public class DialogFinalizar extends javax.swing.JDialog {
 
         jLabel7.setText("Información final");
 
+        txtMotivoEnvio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMotivoEnvioActionPerformed(evt);
+            }
+        });
+
         jLabel8.setText("Decisión *");
 
         jLabel9.setText("Duracion de trámite (días)");
@@ -327,6 +333,10 @@ public class DialogFinalizar extends javax.swing.JDialog {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         nuevo();
     }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void txtMotivoEnvioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMotivoEnvioActionPerformed
+        procesar();
+    }//GEN-LAST:event_txtMotivoEnvioActionPerformed
 
     /**
      * @param args the command line arguments
