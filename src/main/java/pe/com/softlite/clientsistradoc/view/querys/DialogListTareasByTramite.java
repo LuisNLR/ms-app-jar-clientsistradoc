@@ -47,6 +47,7 @@ public class DialogListTareasByTramite extends javax.swing.JDialog {
         tableListTareas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Lista de tareas o actividades realizadas");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de tareas o actividades realizas en el trámite"));
 

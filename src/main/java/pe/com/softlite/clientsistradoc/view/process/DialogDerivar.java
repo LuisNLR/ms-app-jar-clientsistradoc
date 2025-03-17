@@ -84,7 +84,7 @@ public class DialogDerivar extends javax.swing.JDialog {
         btnNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Derivar documentos");
+        setTitle("Proceso derivar trámites");
 
         jLabel1.setText("Area");
 

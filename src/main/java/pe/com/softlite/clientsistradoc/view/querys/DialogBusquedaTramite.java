@@ -88,6 +88,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         txtFechas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Búsqueda de trámites");
 
         lblArea.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblArea.setText("Mesa de Partes");
@@ -309,7 +310,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
         );
 
-        jButton2.setText("Ver tareas realizadas (Pending)");
+        jButton2.setText("Ver tareas realizadas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

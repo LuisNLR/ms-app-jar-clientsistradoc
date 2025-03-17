@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import pe.com.softlite.clientsistradoc.view.querys.DialogListTareasByTramite;
 
 /**
  *
@@ -85,7 +86,7 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         btnNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Registro de actividades");
+        setTitle("Proceso de registro de tareas o actividades dentro del trámite");
 
         jLabel2.setText("Dependencia");
 
@@ -208,6 +209,11 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         cbTipoTarea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VERIFICACION", "REVISION", "REGISTRO", "OTROS" }));
 
         jButton1.setText("Ver tareas...");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -337,6 +343,10 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         nuevo();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        listarTareas();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -420,6 +430,8 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
     private final String cabecera[] = {"COD. TRAMITE", "TIPO TRAMITE", /*"ASUNTO", */"SOLICITANTE", "FLUJO A REALIZAR"};
     private DefaultTableModel tableModel;
     private int rowNumSelected = -1;
+    private DialogListTareasByTramite dialogTareas;
+    private String codigoTramite;
     
     private void initProcess() {
         if(serviceTramite==null) {
@@ -427,6 +439,9 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         }
         if(queryTramite==null) {
             queryTramite = new QueryTramiteImp();
+        }
+        if(dialogTareas==null) {
+            dialogTareas = new DialogListTareasByTramite(this, true);
         }
         loadUsuario();
         nuevo();
@@ -450,6 +465,7 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         txtDuracion.setText("");
         txtDiasTranscurridos.setText("");
         lblAlerta.setText("");
+        codigoTramite = null;
     }
     
     private void loadTramiteToDeriverByDependency() {
@@ -464,7 +480,7 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de trámites a atender. (" + listTramite.size() + " trámites)"));
     }
     
-    private void seleccionarTramite(){
+    private void seleccionarTramite() {
         rowNumSelected = tableListTramites.getSelectedRow();
         TramiteQuerysDTO tramiteSelected = listTramite.get(rowNumSelected);
         txtCodigoTramite.setText(tramiteSelected.getCodigoTramite());
@@ -473,6 +489,7 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
         //txtTarea.setText(tramiteSelected.getDependenciaDestino());
         txtDuracion.setText(String.valueOf(tramiteSelected.getDuracion()));
         txtDiasTranscurridos.setText(String.valueOf(tramiteSelected.getDiasTranscurridos()));
+        codigoTramite = tramiteSelected.getCodigoTramite();
         int diferenciaDias = tramiteSelected.getDuracion() - tramiteSelected.getDiasTranscurridos();
         if(diferenciaDias>0) {
             String mensaje = "Al trámite le quedan " + diferenciaDias + " días";
@@ -508,7 +525,16 @@ public class DialogRegistrarTarea extends javax.swing.JDialog {
             messageType = JOptionPane.INFORMATION_MESSAGE;
         }
         JOptionPane.showMessageDialog(this, mensaje, "Respuesta", messageType);
-        
+    }
+    
+    public void listarTareas() {
+        if(codigoTramite!=null) {
+            dialogTareas.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+            dialogTareas.pack();
+            dialogTareas.setCodigoTramite(codigoTramite);
+            dialogTareas.nuevo();
+            dialogTareas.setVisible(true);
+        }
     }
     
 }

@@ -85,6 +85,7 @@ public class DialogRegistrar extends javax.swing.JDialog {
         btnNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Proceso registrar trámites");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del tramite"));
         jPanel1.setName("DatosTram"); // NOI18N

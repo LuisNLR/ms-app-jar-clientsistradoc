@@ -83,6 +83,7 @@ public class DialogDevolver extends javax.swing.JDialog {
         lblAlerta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Proceso devolver trámites");
 
         lblArea.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblArea.setText("Mesa de Partes");

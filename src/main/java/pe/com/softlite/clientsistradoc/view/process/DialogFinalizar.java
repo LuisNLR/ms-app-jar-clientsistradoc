@@ -83,6 +83,7 @@ public class DialogFinalizar extends javax.swing.JDialog {
         cbDecision = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Proceso Finalizar trámites");
 
         lblArea.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         lblArea.setText("Mesa de Partes");
