@@ -7,6 +7,7 @@ package pe.com.softlite.clientsistradoc.process;
 import pe.com.softlite.clientsistradoc.dto.TareaQuerysDTO;
 import pe.com.softlite.clientsistradoc.dto.TramiteQuerysDTO;
 import java.util.List;
+import pe.com.softlite.clientsistradoc.dto.TramiteMovimientoQueryFlujo;
 
 /**
  *
@@ -29,4 +30,6 @@ public interface QuerysTramite {
     public List<TramiteQuerysDTO> listTramitesFindByRangoFechas(String fechaInicio, String fechaFin);
     
     public List<TareaQuerysDTO> listTareasFindByTramite(String codigoTramite);
+    
+    public List<TramiteMovimientoQueryFlujo> listFlujoTramiteByCodigo(String codigoTramite);
 }

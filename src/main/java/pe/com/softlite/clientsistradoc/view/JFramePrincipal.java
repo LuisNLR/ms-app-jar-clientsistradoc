@@ -4,6 +4,12 @@
  */
 package pe.com.softlite.clientsistradoc.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import pe.com.softlite.clientsistradoc.StartApplication;
 import pe.com.softlite.clientsistradoc.dto.LoginResponseDTO;
 import pe.com.softlite.clientsistradoc.view.process.DialogFinalizar;
 import pe.com.softlite.clientsistradoc.view.process.DialogDevolver;
@@ -42,8 +48,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
+        itemStyleWindows = new javax.swing.JMenuItem();
+        StyleNimbus = new javax.swing.JMenuItem();
+        itemStyleMetal = new javax.swing.JMenuItem();
+        jSeparator4 = new javax.swing.JPopupMenu.Separator();
         itemSalir = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemRegistrarTramite = new javax.swing.JMenuItem();
@@ -62,7 +74,51 @@ public class JFramePrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMA DE TRÁMITE DOCUMENTARIO");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/principal.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         jMenu2.setText("File");
+
+        itemStyleWindows.setText("Estilo Windows");
+        itemStyleWindows.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemStyleWindowsActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemStyleWindows);
+
+        StyleNimbus.setText("Estilo Nimbus");
+        StyleNimbus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StyleNimbusActionPerformed(evt);
+            }
+        });
+        jMenu2.add(StyleNimbus);
+
+        itemStyleMetal.setText("Estilo Metal");
+        itemStyleMetal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemStyleMetalActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemStyleMetal);
+        jMenu2.add(jSeparator4);
 
         itemSalir.setText("Salir");
         itemSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -139,11 +195,17 @@ public class JFramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 734, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 290, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -176,6 +238,18 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private void itemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSalirActionPerformed
         System.exit(1);
     }//GEN-LAST:event_itemSalirActionPerformed
+
+    private void StyleNimbusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StyleNimbusActionPerformed
+        asignedDesing("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+    }//GEN-LAST:event_StyleNimbusActionPerformed
+
+    private void itemStyleWindowsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStyleWindowsActionPerformed
+        asignedDesing("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+    }//GEN-LAST:event_itemStyleWindowsActionPerformed
+
+    private void itemStyleMetalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemStyleMetalActionPerformed
+        asignedDesing("javax.swing.plaf.metal.MetalLookAndFeel");
+    }//GEN-LAST:event_itemStyleMetalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,6 +288,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem StyleNimbus;
     private javax.swing.JMenuItem itemBusquedaTramite;
     private javax.swing.JMenuItem itemDerivarTramites;
     private javax.swing.JMenuItem itemDevolverTramites;
@@ -221,14 +296,19 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemRegistrarTareas;
     private javax.swing.JMenuItem itemRegistrarTramite;
     private javax.swing.JMenuItem itemSalir;
+    private javax.swing.JMenuItem itemStyleMetal;
+    private javax.swing.JMenuItem itemStyleWindows;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JPopupMenu.Separator jSeparator4;
     // End of variables declaration//GEN-END:variables
 
     private LoginResponseDTO loginResponseDTO;
@@ -241,6 +321,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private DialogBusquedaTramite dialogBusquedaTramite;
     
     private void initProcess() {
+        if(loginResponseDTO!=null && loginResponseDTO.getIdDependencia()!=null && loginResponseDTO.getIdDependencia()==1) {
+            itemRegistrarTramite.setEnabled(true);
+        }else {
+            itemRegistrarTramite.setEnabled(false);
+        }
         if(dialogRegistrarTramite==null) {
             dialogRegistrarTramite = new DialogRegistrar(this, true, loginResponseDTO);
         }
@@ -304,6 +389,30 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     public LoginResponseDTO getLoginResponseDTO() {
         return loginResponseDTO;
+    }
+    
+    private void asignedDesing(String nameDesing) {
+        try {
+            dialogDerivarTramite = null;
+            dialogBusquedaTramite = null;
+            dialogDevolverTramite = null;
+            dialogFinalizarTramite = null;
+            dialogRegistrarTarea = null;
+            dialogRegistrarTramite = null;
+            UIManager.setLookAndFeel(nameDesing);
+            SwingUtilities.updateComponentTreeUI(this);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(StartApplication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(StartApplication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(StartApplication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(StartApplication.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+        initProcess();
     }
     
 }

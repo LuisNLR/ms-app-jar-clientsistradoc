@@ -477,5 +477,5 @@ public class DialogRegistrar extends javax.swing.JDialog {
         
         return new TramiteRegisterDTO(tramiteDto);
     }
-
+    
 }

@@ -225,6 +225,7 @@ public class DialogFinalizar extends javax.swing.JDialog {
         lblAlerta.setForeground(new java.awt.Color(0, 0, 204));
         lblAlerta.setText("mensajito mensajito");
 
+        cbDecision.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         cbDecision.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "APROBADO", "DESAPROBADO" }));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

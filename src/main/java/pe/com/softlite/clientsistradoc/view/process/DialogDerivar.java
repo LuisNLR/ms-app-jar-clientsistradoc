@@ -198,6 +198,7 @@ public class DialogDerivar extends javax.swing.JDialog {
         jLabel8.setText("Dependencia Destino");
 
         txtDependenciaDestino.setEditable(false);
+        txtDependenciaDestino.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
 
         jLabel9.setText("Duracion de trámite (días)");
 

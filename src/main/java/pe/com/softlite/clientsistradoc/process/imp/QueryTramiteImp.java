@@ -14,6 +14,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Arrays;
 import java.util.List;
+import pe.com.softlite.clientsistradoc.dto.TramiteMovimientoQueryFlujo;
 import pe.com.softlite.clientsistradoc.utils.ReadProperty;
 
 /**
@@ -238,6 +239,33 @@ public class QueryTramiteImp implements QuerysTramite{
             e.printStackTrace();
         }
         return Arrays.asList (listTareaQuerysDTO);
+    }
+
+    @Override
+    public List<TramiteMovimientoQueryFlujo> listFlujoTramiteByCodigo(String codigoTramite) {
+        HttpClient httpClient = null;
+        HttpRequest request = null;
+        HttpResponse<String> httpResponse = null;
+        TramiteMovimientoQueryFlujo[] listFlujoTramiteDTO = null;
+        String apiUri = ReadProperty.getInstance().getValueProperty("api.ws.sistradoc.getListFlujoTramiteByCodigo");
+        try {
+            httpClient = HttpClient.newHttpClient();
+            request = HttpRequest.newBuilder()
+                        .uri(URI.create(urlSistradoc + apiUri + codigoTramite))
+//			.uri(URI.create("http://localhost:8090/ms-app-ws-sistradoc/querys/getListFlujoTramiteByCodigo/"+ codigoTramite))
+                        .header("Content-Type", "application/json")
+                        .version(HttpClient.Version.HTTP_1_1)
+                        .GET()
+                        .build();
+
+            httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            ObjectMapper objectMapper = new ObjectMapper();
+            listFlujoTramiteDTO = objectMapper.readValue(httpResponse.body(), TramiteMovimientoQueryFlujo[].class);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Arrays.asList (listFlujoTramiteDTO);
     }
     
 }

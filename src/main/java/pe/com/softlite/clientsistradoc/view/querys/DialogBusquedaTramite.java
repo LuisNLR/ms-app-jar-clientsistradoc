@@ -74,18 +74,32 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableListTramites = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jlabelUbicacion = new javax.swing.JLabel();
-        txtUbicacionActual = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        jlabelFechas = new javax.swing.JLabel();
+        txtFechas = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtEstadoTramite = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtAsunto = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtTipoTramite = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtSolicitante = new javax.swing.JTextField();
+        jlabelUbicacion = new javax.swing.JLabel();
+        txtUbicacionActual = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtUbicacionSiguiente = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtTramiteCodigo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtTipoDocumento = new javax.swing.JTextField();
         txtDuracion = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtDiasTranscurridos = new javax.swing.JTextField();
         lblAlerta = new javax.swing.JLabel();
-        jlabelFechas = new javax.swing.JLabel();
-        txtFechas = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Búsqueda de trámites");
@@ -118,8 +132,8 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDependencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
-                    .addComponent(lblArea, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE))
+                    .addComponent(lblDependencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addComponent(lblArea, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -307,8 +321,16 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
         );
+
+        jButton1.setText("Ver flujo realizado");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton1);
 
         jButton2.setText("Ver tareas realizadas");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -318,33 +340,169 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         });
         jPanel7.add(jButton2);
 
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Información del trámite seleccionado"));
+
+        jlabelFechas.setText("Fechas Reg. - Term");
+
+        txtFechas.setEditable(false);
+        txtFechas.setText("29/09/2024 - 20/10/2024");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Situación.");
+
+        txtEstadoTramite.setEditable(false);
+        txtEstadoTramite.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtEstadoTramite.setText("FINALIZADO");
+
+        jLabel3.setText("Asunto.");
+
+        txtAsunto.setEditable(false);
+        txtAsunto.setText("Solicito Licencia de Funcionamiento para Local en Av Rivera Navarrete 351");
+
+        jLabel5.setText("Tipo Tramite");
+
+        txtTipoTramite.setEditable(false);
+        txtTipoTramite.setText("Autorización municipal para kioskos en la vía publica - Eventuales");
+
+        jLabel6.setText("Solicitante");
+
+        txtSolicitante.setEditable(false);
+        txtSolicitante.setText("DNI. 50426633 - CARLOS JIMENEZ PEREZ");
+
+        jlabelUbicacion.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jlabelUbicacion.setText("Ubicación Actual");
 
         txtUbicacionActual.setEditable(false);
-        txtUbicacionActual.setText("jTextField1");
+        txtUbicacionActual.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtUbicacionActual.setText("Programa Vaso de leche");
 
-        jLabel4.setText("Situación de Trámite");
+        jLabel7.setText("Próxima ubicación");
 
-        txtEstadoTramite.setEditable(false);
-        txtEstadoTramite.setText("REGISTRADO");
+        txtUbicacionSiguiente.setEditable(false);
+        txtUbicacionSiguiente.setText("Programa Vaso de leche");
 
-        jLabel9.setText("Duracion de trámite (días)");
+        jLabel8.setText("Código");
+
+        txtTramiteCodigo.setEditable(false);
+        txtTramiteCodigo.setText("TR24102400056");
+
+        jLabel12.setText("Tipo Documento");
+
+        txtTipoDocumento.setEditable(false);
+        txtTipoDocumento.setText("jTextField3");
 
         txtDuracion.setEditable(false);
         txtDuracion.setText("999");
 
+        jLabel9.setText("Duracion (días)");
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         jLabel10.setText("Tiempo transcurrido (días laborales)");
 
         txtDiasTranscurridos.setEditable(false);
+        txtDiasTranscurridos.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         txtDiasTranscurridos.setText("999");
 
+        lblAlerta.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         lblAlerta.setForeground(new java.awt.Color(0, 0, 204));
         lblAlerta.setText("mensajito mensajito");
 
-        jlabelFechas.setText("Fechas de registro - termino");
-
-        txtFechas.setEditable(false);
-        txtFechas.setText("29/09/2024 - 20/10/2024");
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlabelUbicacion)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUbicacionSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtAsunto)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtTramiteCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                                            .addComponent(txtTipoDocumento))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jlabelFechas)
+                                            .addComponent(jLabel4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtFechas, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                                            .addComponent(txtEstadoTramite))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtTipoTramite, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSolicitante))
+                        .addContainerGap())
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDiasTranscurridos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                        .addGap(38, 38, 38))))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtTramiteCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlabelFechas)
+                    .addComponent(txtFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtEstadoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtTipoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtAsunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlabelUbicacion)
+                    .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtUbicacionSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtDiasTranscurridos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAlerta))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,31 +515,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addComponent(jlabelUbicacion)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtDiasTranscurridos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtEstadoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(81, 81, 81)
-                                        .addComponent(jlabelFechas))
-                                    .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFechas, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -391,25 +525,10 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtEstadoTramite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlabelFechas)
-                    .addComponent(txtFechas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jlabelUbicacion)
-                    .addComponent(txtUbicacionActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtDiasTranscurridos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblAlerta))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -443,6 +562,10 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         listarTareas();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        listarFujoTramite();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -492,12 +615,19 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private javax.swing.JButton btnNuevo;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cbBusquedaTipoDocumento;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -506,6 +636,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlabelFechas;
     private javax.swing.JLabel jlabelUbicacion;
@@ -522,6 +653,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbFechas;
     private javax.swing.JRadioButton rbSolicitante;
     private javax.swing.JTable tableListTramites;
+    private javax.swing.JTextField txtAsunto;
     private javax.swing.JTextField txtBusquedaCodigoTramite;
     private javax.swing.JTextField txtBusquedaFechaFin;
     private javax.swing.JTextField txtBusquedaFechaInicio;
@@ -530,7 +662,12 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtEstadoTramite;
     private javax.swing.JTextField txtFechas;
+    private javax.swing.JTextField txtSolicitante;
+    private javax.swing.JTextField txtTipoDocumento;
+    private javax.swing.JTextField txtTipoTramite;
+    private javax.swing.JTextField txtTramiteCodigo;
     private javax.swing.JTextField txtUbicacionActual;
+    private javax.swing.JTextField txtUbicacionSiguiente;
     // End of variables declaration//GEN-END:variables
 
     private LoginResponseDTO loginResponseDTO;
@@ -541,6 +678,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private DefaultTableModel tableModel;
     private int rowNumSelected = -1;
     private DialogListTareasByTramite dialogTareas;
+    private DialogFlujoTramite dialogFlujoTramite;
     private String codigoTramite;
     
     private void initProcess() {
@@ -549,6 +687,9 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         }
         if(dialogTareas==null) {
             dialogTareas = new DialogListTareasByTramite(this, true);
+        }
+        if(dialogFlujoTramite==null) {
+            dialogFlujoTramite = new DialogFlujoTramite(this, true);
         }
         opcionCodigoTramite();
         loadUsuario();
@@ -576,6 +717,12 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         txtDuracion.setText("");
         txtDiasTranscurridos.setText("");
         lblAlerta.setText("");
+        txtTramiteCodigo.setText("");
+        txtTipoTramite.setText("");
+        txtSolicitante.setText("");
+        txtTipoDocumento.setText("");
+        txtAsunto.setText("");
+        txtUbicacionSiguiente.setText("");
     }
         
     private void buscar() {
@@ -606,9 +753,12 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
     private void seleccionar() {
         rowNumSelected = tableListTramites.getSelectedRow();
         TramiteQuerysDTO tramiteSelected = listTramite.get(rowNumSelected);
-//        txtCodigoTramite.setText(tramiteSelected.getCodigoTramite());
-//        txtTipoTramite.setText(tramiteSelected.getTipoTramite());
-//        txtSolicitante.setText(tramiteSelected.getSolicitante());
+        txtTramiteCodigo.setText(tramiteSelected.getCodigoTramite());
+        txtTipoTramite.setText(tramiteSelected.getTipoTramite());
+        txtSolicitante.setText(tramiteSelected.getSolicitante());
+        txtTipoDocumento.setText(tramiteSelected.getTipoDocumentoTramite());
+        txtAsunto.setText(tramiteSelected.getAsunto());
+        txtUbicacionSiguiente.setText(tramiteSelected.getDependenciaDestino());
 
         txtEstadoTramite.setText(tramiteSelected.getEstadoTramite());
         txtUbicacionActual.setText(tramiteSelected.getDependenciaActual());
@@ -616,7 +766,7 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         txtDuracion.setText(String.valueOf(tramiteSelected.getDuracion()));
         txtDiasTranscurridos.setText(String.valueOf(tramiteSelected.getDiasTranscurridos()));
         codigoTramite = tramiteSelected.getCodigoTramite();
-        int diferenciaDias = tramiteSelected.getDuracion() - tramiteSelected.getDiasTranscurridos();
+        int diferenciaDias = tramiteSelected.getDuracion() - (tramiteSelected.getDiasTranscurridos()!=null ? tramiteSelected.getDiasTranscurridos() : 0);
         if(diferenciaDias>0) {
             String mensaje = "Al trámite le quedan " + diferenciaDias + " días";
             lblAlerta.setForeground(new java.awt.Color(0, 0, 204));
@@ -677,6 +827,14 @@ public class DialogBusquedaTramite extends javax.swing.JDialog {
         dialogTareas.nuevo();
         dialogTareas.setVisible(true);
         
+    }
+    
+    public void listarFujoTramite() {
+        dialogFlujoTramite.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        dialogFlujoTramite.pack();
+        dialogFlujoTramite.setCodigoTramite(codigoTramite);
+        dialogFlujoTramite.nuevo();
+        dialogFlujoTramite.setVisible(true);
     }
     
 }
