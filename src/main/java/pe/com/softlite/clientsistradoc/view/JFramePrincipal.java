@@ -297,7 +297,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_itemBusquedaTramiteActionPerformed
 
     private void itemSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSalirActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_itemSalirActionPerformed
 
     private void StyleNimbusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StyleNimbusActionPerformed

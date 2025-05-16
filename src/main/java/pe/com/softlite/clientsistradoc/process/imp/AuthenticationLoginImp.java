@@ -4,6 +4,7 @@
  */
 package pe.com.softlite.clientsistradoc.process.imp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import pe.com.softlite.clientsistradoc.dto.UsuarioDto;
 import pe.com.softlite.clientsistradoc.process.AuthenticationLogin;
@@ -19,7 +20,7 @@ import pe.com.softlite.clientsistradoc.utils.ReadProperty;
  */
 public class AuthenticationLoginImp implements AuthenticationLogin{
     
-    private String apiUrlAuthentication = ReadProperty.getInstance().getValueProperty("url.ws.authentication");
+    private final String urlAuthentication = ReadProperty.getInstance().getValueProperty("url.ws.authentication");
 
     @Override
     public HttpResponse<String> login(UsuarioDto loginRequestDto) {
@@ -28,11 +29,11 @@ public class AuthenticationLoginImp implements AuthenticationLogin{
         HttpClient httpClient = null;
         HttpRequest request = null;
         HttpResponse<String> httpResponse = null;
-        
+        String apiUri = ReadProperty.getInstance().getValueProperty("api.ws.authentication.login");
         try {
             httpClient = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
-                        .uri(URI.create(apiUrlAuthentication))
+                        .uri(URI.create(urlAuthentication + apiUri))
 //			.uri(URI.create("http://localhost:8093/ms-app-ws-authentication/auth/login"))
                         .header("Content-Type", "application/json")
                         .version(HttpClient.Version.HTTP_1_1)
@@ -45,5 +46,5 @@ public class AuthenticationLoginImp implements AuthenticationLogin{
         }
         return httpResponse;
     }
-    
+
 }

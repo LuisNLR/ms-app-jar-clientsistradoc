@@ -14,6 +14,9 @@ import java.net.http.HttpResponse;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import pe.com.softlite.clientsistradoc.dto.Health;
+import pe.com.softlite.clientsistradoc.process.HealthServices;
+import pe.com.softlite.clientsistradoc.process.imp.HealthServicesImp;
 
 /**
  *
@@ -50,6 +53,7 @@ public class JFrameLogin extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        lblStatusServiceAuthentication = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Acceso al sistema de trámite documentario");
@@ -69,9 +73,8 @@ public class JFrameLogin extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbImagenMuniLogo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbImagenMuniLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         lblImagenSistradoclogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_sistradoc.jpg"))); // NOI18N
@@ -153,12 +156,20 @@ public class JFrameLogin extends javax.swing.JFrame {
         });
         jPanel4.add(btnSalir);
 
+        lblStatusServiceAuthentication.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lblStatusServiceAuthentication.setForeground(new java.awt.Color(0, 0, 153));
+        lblStatusServiceAuthentication.setText("El servicio de autenticación se encuentra activo.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblStatusServiceAuthentication)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,7 +189,8 @@ public class JFrameLogin extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblStatusServiceAuthentication)))
                 .addContainerGap())
         );
 
@@ -243,6 +255,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lbImagenMuniLogo;
     private javax.swing.JLabel lblImagenSistradoclogo;
+    private javax.swing.JLabel lblStatusServiceAuthentication;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
@@ -250,17 +263,49 @@ public class JFrameLogin extends javax.swing.JFrame {
     private JFramePrincipal framePrincipal;
     private AuthenticationLogin authenticationLogin;
     private UsuarioDto loginRequestDto;
+    private HealthServices healthServices;
     
     private void initProcess() {
         if(authenticationLogin==null) {
             authenticationLogin = new AuthenticationLoginImp();
         }
+        if(healthServices==null) {
+            healthServices = new HealthServicesImp();
+        }
+        
         nuevo();
+        statusServices();
     }
     
     private void nuevo() {
         txtUsuario.setText("");
         txtPassword.setText("");
+    }
+    
+    private void statusServices() {
+        boolean healthAuthenticationOK = false;
+        boolean healthSistradocOK = false;
+        Health healthAuthentication = healthServices.getHealthAuthentication();
+        Health healthSistradoc = healthServices.getHealthSistradoc();
+        if(healthAuthentication!=null && healthAuthentication.getStatus().equals("UP")) {
+            healthAuthenticationOK = true;
+        }
+        if(healthSistradoc!=null && healthSistradoc.getStatus().equals("UP")) {
+            healthSistradocOK = true;
+        }
+        lblStatusServiceAuthentication.setForeground(new java.awt.Color(204, 0, 0));
+        if(healthAuthenticationOK && healthSistradocOK) {
+            lblStatusServiceAuthentication.setForeground(new java.awt.Color(0, 0, 153));
+            lblStatusServiceAuthentication.setText("Los servicios se encuentran activos.");
+        }else if(!healthAuthenticationOK && !healthSistradocOK) {
+            lblStatusServiceAuthentication.setText("Favor revisar los servicios");
+        }else if(!healthAuthenticationOK) {
+            lblStatusServiceAuthentication.setText("Favor revisar el servicio de autenticación");
+        }else if(!healthSistradocOK) {
+            lblStatusServiceAuthentication.setText("Favor revisar el servicio de trámites");
+        }else {
+            lblStatusServiceAuthentication.setText("Favor revisar más a detalle los servicios");
+        }
     }
     
     private void login() {
@@ -293,7 +338,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     }
     
     private void salir() {
-        System.exit(1);
+        System.exit(0);
     }
 
 }

@@ -44,7 +44,7 @@ public class ServicesTramiteImp implements ServicesTramite {
                         .version(HttpClient.Version.HTTP_1_1)
                         .POST(HttpRequest.BodyPublishers.ofString(gson.toJson(tramiteRegisterDto)))
                         .build();
-
+            
             httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {
             e.printStackTrace();

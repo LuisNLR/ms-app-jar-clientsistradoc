@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.text.AbstractDocument;
+import pe.com.softlite.clientsistradoc.utils.NumericDocumentFilter;
 
 /**
  *
@@ -164,6 +166,11 @@ public class DialogRegistrar extends javax.swing.JDialog {
         jLabel6.setText("Tipo Documento *");
 
         cbSolicitanteTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DNI", "CE", "PAS", "RUC" }));
+        cbSolicitanteTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSolicitanteTipoDocumentoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Nro Documento *");
 
@@ -309,6 +316,17 @@ public class DialogRegistrar extends javax.swing.JDialog {
         registrar();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    private void cbSolicitanteTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSolicitanteTipoDocumentoActionPerformed
+        txtSolicitanteNroDocumento.setText("");
+        if(cbSolicitanteTipoDocumento.getSelectedItem().equals("DNI")){
+            ((AbstractDocument) txtSolicitanteNroDocumento.getDocument()).setDocumentFilter(new NumericDocumentFilter(8));
+        }else if(cbSolicitanteTipoDocumento.getSelectedItem().equals("RUC") || cbSolicitanteTipoDocumento.getSelectedItem().equals("PAS")){
+            ((AbstractDocument) txtSolicitanteNroDocumento.getDocument()).setDocumentFilter(new NumericDocumentFilter(11));
+        }else if(cbSolicitanteTipoDocumento.getSelectedItem().equals("CE")){
+            ((AbstractDocument) txtSolicitanteNroDocumento.getDocument()).setDocumentFilter(new NumericDocumentFilter(9));
+        }
+    }//GEN-LAST:event_cbSolicitanteTipoDocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -405,6 +423,7 @@ public class DialogRegistrar extends javax.swing.JDialog {
             
         //Cargar los datos de tipo de trámite
         loadListTipoTramite();
+        ((AbstractDocument) txtSolicitanteNroDocumento.getDocument()).setDocumentFilter(new NumericDocumentFilter(8));
         nuevo();
     }
     
