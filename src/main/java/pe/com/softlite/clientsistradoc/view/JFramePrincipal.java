@@ -11,6 +11,8 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import pe.com.softlite.clientsistradoc.StartApplication;
 import pe.com.softlite.clientsistradoc.dto.LoginResponseDTO;
+import pe.com.softlite.clientsistradoc.process.ReportsTramite;
+import pe.com.softlite.clientsistradoc.process.imp.ReportsTramiteImp;
 import pe.com.softlite.clientsistradoc.view.process.DialogFinalizar;
 import pe.com.softlite.clientsistradoc.view.process.DialogDevolver;
 import pe.com.softlite.clientsistradoc.view.process.DialogRegistrar;
@@ -75,6 +77,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         itemFinalizarTramites = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         itemBusquedaTramite = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        itemReporteTramitesInProgresByDep = new javax.swing.JMenuItem();
+        itemReporteTramitesInProgresByTipoTram = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -246,6 +251,26 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu5.setText("Reportes");
+
+        itemReporteTramitesInProgresByDep.setText("Tramites en proceso por Dependencia");
+        itemReporteTramitesInProgresByDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteTramitesInProgresByDepActionPerformed(evt);
+            }
+        });
+        jMenu5.add(itemReporteTramitesInProgresByDep);
+
+        itemReporteTramitesInProgresByTipoTram.setText("Tramites en proceso por Tipo Tramite");
+        itemReporteTramitesInProgresByTipoTram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemReporteTramitesInProgresByTipoTramActionPerformed(evt);
+            }
+        });
+        jMenu5.add(itemReporteTramitesInProgresByTipoTram);
+
+        jMenuBar1.add(jMenu5);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -312,6 +337,14 @@ public class JFramePrincipal extends javax.swing.JFrame {
         asignedDesing("javax.swing.plaf.metal.MetalLookAndFeel");
     }//GEN-LAST:event_itemStyleMetalActionPerformed
 
+    private void itemReporteTramitesInProgresByDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteTramitesInProgresByDepActionPerformed
+        exportarReporteTramInProgressByDependency();
+    }//GEN-LAST:event_itemReporteTramitesInProgresByDepActionPerformed
+
+    private void itemReporteTramitesInProgresByTipoTramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemReporteTramitesInProgresByTipoTramActionPerformed
+        exportarReporteTramInProgressByTipoTramite();
+    }//GEN-LAST:event_itemReporteTramitesInProgresByTipoTramActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -356,6 +389,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemFinalizarTramites;
     private javax.swing.JMenuItem itemRegistrarTareas;
     private javax.swing.JMenuItem itemRegistrarTramite;
+    private javax.swing.JMenuItem itemReporteTramitesInProgresByDep;
+    private javax.swing.JMenuItem itemReporteTramitesInProgresByTipoTram;
     private javax.swing.JMenuItem itemSalir;
     private javax.swing.JMenuItem itemStyleMetal;
     private javax.swing.JMenuItem itemStyleWindows;
@@ -367,6 +402,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -488,6 +524,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         initProcess();
+    }
+    
+    private void exportarReporteTramInProgressByDependency() {
+        ReportsTramite report = new ReportsTramiteImp();
+        report.generateReportTramitesInProgressByDependency();
+    }
+    
+    private void exportarReporteTramInProgressByTipoTramite() {
+        ReportsTramite report = new ReportsTramiteImp();
+        report.generateReportTramitesInProgressByTipoTramite();
     }
     
 }
