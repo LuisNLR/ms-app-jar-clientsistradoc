@@ -34,7 +34,7 @@ public class HealthServicesImp implements HealthServices {
             httpClient = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
                         .uri(URI.create(urlAuthentication + apiUri))
-//			.uri(URI.create("http://localhost:8093/ms-app-ws-authentication/actuator/health))
+//			.uri(URI.create("http://localhost:8093/ms-app-ws-authentication/actuator/health"))
                         .header("Content-Type", "application/json")
                         .version(HttpClient.Version.HTTP_1_1)
                         .GET()

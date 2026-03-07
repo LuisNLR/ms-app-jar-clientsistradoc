@@ -11,6 +11,7 @@ package pe.com.softlite.clientsistradoc.dto;
 public class Health {
     
     private String status;
+    private String[] groups;
 
     public String getStatus() {
         return status;
@@ -18,6 +19,14 @@ public class Health {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String[] getGroups() {
+        return groups;
+    }
+
+    public void setGroups(String[] groups) {
+        this.groups = groups;
     }
     
 }
